@@ -1,0 +1,21 @@
+🛠️ BACKEND: To-Do & Fix List
+    [ ] PERFORMANCE: Attivazione Accumulatore di Rete (PlayState)
+        Il Problema: Attualmente il server spara eventi GAME_STATE a 60Hz.
+        La Soluzione: Appena il frontend è pronto con l'interpolazione (Lerp),
+        implementare il timer networkAccumulator nel update del PlayState per inviare i pacchetti a 20Hz o 30Hz, riducendo drasticamente il carico di rete.
+
+🎨 FRONTEND: To-Do & Fix List (Per il tuo collega)
+    [ ] CRITICO: Fix Loop Infinito WebSocket (Socket Thrashing)
+        Il Problema: React apre e chiude decine di connessioni al secondo appena inizia la partita, 
+        inviando input su socket "morti" e bloccando di fatto il movimento del personaggio.
+        La Soluzione: Inizializzare l'istanza di Socket.io al di fuori del ciclo di vita del componente, 
+        o all'interno di un useEffect con array di dipendenze vuoto [], in modo che la connessione avvenga una sola volta al mount.
+    [ ] GAMEPLAY: Implementazione Interpolazione Lineare (Lerp)
+        Il Problema: Quando il backend abbasserà il tickrate di rete per ottimizzare la banda (es. a 20 invii al secondo), 
+        i personaggi si muoveranno a scatti sul monitor (che va a 60 FPS).
+        La Soluzione: Usare una funzione di Lerp in frontend per calcolare "morbidamente" la transizione tra l'ultima posizione 
+        ricevuta dal server e la nuova.
+    [ ] IA: Sviluppo logica dei Bot
+        Il Problema: I bot attualmente non si muovono.
+        La Soluzione: Sfruttare l'AiService (già iniettato nel backend a prova di bomba tramite ReadonlyMap) per calcolare 
+        la distanza dai nemici e pushare direzioni vettoriali normalizzate nella inputQueue del bot.
