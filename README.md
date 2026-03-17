@@ -9,7 +9,7 @@
 ## 📖 Context & Architecture
 This repository contains the **Core Game Engine Service** for a larger real-time multiplayer browser game (part of the 42 Network "Transcendence" project). 
 
-It is designed as a standalone, decoupled backend microservice. It does not contain frontend code; instead, it handles pure authoritative game logic, custom 2D physics, state management, and real-time networking via WebSockets, communicating with other microservices (like Matchmaking) via Redis events.
+It is designed as a standalone, decoupled backend microservice. It does not contain frontend code; instead, it handles pure authoritative game logic, custom 2D physics, state management, and real-time networking via WebSockets, communicating with other microservices (like Matchmaking) via Redis events and HTTP request.
 
 ## ✨ Key Features & Technical Highlights
 
